@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
- // const phoneRoute = require("./routes/phone");
+ const phoneRoute = require("./routes/phone");
 // const productRoute = require("./routes/product");
 // const cartRoute = require("./routes/cart");
 // const orderRoute = require("./routes/order");
@@ -34,7 +34,7 @@ mongoose
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
-// app.use("/api/phone", phoneRoute);
+app.use("/api/phone", phoneRoute);
 // app.use("/api/products", productRoute);
 // app.use("/api/carts", cartRoute);
 // app.use("/api/orders", orderRoute);
