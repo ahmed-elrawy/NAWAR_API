@@ -1,4 +1,7 @@
 
+
+
+const User = require("../models/user");
 const Phone = require("../models/phone");
 
 const multer = require("multer") // to parse form data body
@@ -88,6 +91,7 @@ router.post("/", upload.single("image"), async (req, res) => {
       color: req.body.color,
       model: req.body.model,
       img: {
+        // data: 'http://localhost:5000/' + req.file.filename,
         data: 'https://peaceful-spire-42693.herokuapp.com/' + req.file.filename,
         contentType: 'image/png'
       }
@@ -121,6 +125,21 @@ router.get("/:id", async (req, res) => {
   try {
     const phone = await Phone.findById(req.params.id);
     res.status(200).json(phone._doc);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    const phone = await Phone.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        { new: true }
+    );
+    res.status(200).json(phone);
   } catch (err) {
     res.status(500).json(err);
   }
