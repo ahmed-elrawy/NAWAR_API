@@ -88,7 +88,7 @@ router.post("/", upload.single("image"), async (req, res) => {
       color: req.body.color,
       model: req.body.model,
       img: {
-        data: 'http://localhost:5000/' + req.file.filename,
+        data: 'https://peaceful-spire-42693.herokuapp.com/' + req.file.filename,
         contentType: 'image/png'
       }
     });
