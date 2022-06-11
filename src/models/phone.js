@@ -8,6 +8,10 @@ const PhoneSchema = new mongoose.Schema(
     ip: { type: String, required: true },
     model: { type: String, required: true },
     color: { type: String, required: true },
+    status: {
+        type: String,
+        default: 0
+    },
     img:   {
       // data: Buffer,
       data: String,
