@@ -1,7 +1,4 @@
 
-
-
-const User = require("../models/User");
 const Phone = require("../models/phone");
 
 const multer = require("multer") // to parse form data body
